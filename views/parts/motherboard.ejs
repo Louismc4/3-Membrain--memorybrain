@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+    <div class="row text-center"><h1>Motherboards</h1></div>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% moboResponse.forEach(function(moboObject){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <% if (moboObject.main.title != ""){ %>
+                        <h5><strong><%=moboObject.main.title%></strong></h5>
+                    <% } %>
+                    <% if (moboObject.main.price != 0){ %>
+                         <h5><strong>$<%=moboObject.main.price%></strong></h5>
+                    <% } %>
+                    <img src="https://media.memoryexpress.com/Images/Products/medium/<%=moboObject.idx.mxid%>-0.jpg">
+                    <div class="caption">
+                        <% if (moboObject.motherboard.mem_speed > 0){ %>
+                            <h6><strong>Max Memory Speed : <%=moboObject.motherboard.mem_speed%> mhz</strong></h5>
+                        <% } %>
+                        <% if (moboObject.motherboard.dimms > 0){ %>
+                            <h6><strong>Memory DIMM Slots : <%=moboObject.motherboard.dimms%></strong></h5>
+                        <% } %>
+                        <% if (moboObject.motherboard.form_factor != ''){ %>
+                            <h6><strong>Form Factor : <%=moboObject.motherboard.form_factor%></strong></h5>
+                        <% } %>
+                        <% if (moboObject.motherboard.socket != ''){ %>
+                            <h6><strong>Socket : <%=moboObject.motherboard.socket%></strong></h5>
+                        <% } %>
+                        <% if (moboObject.motherboard.m2){ %>
+                            <h6><strong>M.2 Supported</strong></h5>
+                        <% } %>
+                        <% if (moboObject.motherboard.usb31){ %>
+                            <h6><strong>USB 3.1 Supported</strong></h5>
+                        <% } %>
+                    </div>
+                    <p>
+                        <!--<a href="/main/" class="btn btn-warning">More Info</a>-->
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+<% include ../partials/footer %>

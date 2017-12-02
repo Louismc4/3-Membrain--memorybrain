@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+    <div class="row text-center"><h1>HDDs</h1></div>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% hddResponse.forEach(function(hddObject){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <% if (hddObject.main.title != ""){ %>
+                        <h5><strong><%=hddObject.main.title%></strong></h5>
+                    <% } %>
+                    <% if (hddObject.main.price != 0){ %>
+                         <h5><strong>$<%=hddObject.main.price%></strong></h5>
+                    <% } %>
+                    <img src="https://media.memoryexpress.com/Images/Products/medium/<%=hddObject.idx.mxid%>-0.jpg">
+                    <div class="caption">
+                        <% if (hddObject.hdd.interface != ''){ %>
+                            <h6><strong><%=hddObject.hdd.interface%></strong></h5>
+                        <% } %>
+                        <% if (hddObject.hdd.hdd_size > 0){ %>
+                            <h6><strong>Size : <%=hddObject.hdd.hdd_size%> in</strong></h5>
+                        <% } %>
+                        <% if (hddObject.hdd.benchmark > 0){ %>
+                            <h6><strong>Benchmark Score : <%=gpuObject.gpu.benchmark%></strong></h5>
+                        <% } %>
+                    </div>
+                    <p>
+                        <!--<a href="/main/" class="btn btn-warning">More Info</a>-->
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+<% include ../partials/footer %>

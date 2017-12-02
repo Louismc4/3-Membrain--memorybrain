@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+    <div class="row text-center"><h1>Cases</h1></div>
+    <div class="row text-center w-80" style="display:flex; flex-wrap: wrap;">
+        <% caseResponse.forEach(function(caseObject){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <% if (caseObject.main.title != ""){ %>
+                        <h5><strong><%=caseObject.main.title%></strong></h5>
+                    <% } %>
+                    <% if (caseObject.main.price != 0){ %>
+                         <h5><strong>$<%=caseObject.main.price%></strong></h5>
+                    <% } %>
+                    <img src="https://media.memoryexpress.com/Images/Products/medium/<%=caseObject.idx.mxid%>-0.jpg">
+                    <div class="caption">
+                        <% if (caseObject.case.form_factor != ''){ %>
+                            <h6><strong>Motherboard Form Factor : <%=caseObject.case.form_factor%></strong></h5>
+                        <% } %>
+                        <% if (caseObject.case.psu_size != ''){ %>
+                            <h6><strong>Power Supply Size : <%=caseObject.case.psu_size%></strong></h5>
+                        <% } %>
+                        <% if (caseObject.case.psu_length > 50){ %>
+                            <h6><strong>Power Supply Length : <%=caseObject.case.psu_length%> mm</strong></h5>
+                        <% } %>
+                        <% if (caseObject.case.psu_included != 0){ %>
+                            <h6><strong>Power Supply Included Wattage : <%=caseObject.case.psu_included%> W</strong></h5>
+                        <% } %>
+                        <% if (caseObject.case.gpu_length != 0){ %>
+                            <h6><strong>GPU Length : <%=caseObject.case.gpu_length%> mm</strong></h5>
+                        <% } %>
+                    </div>
+                    <p>
+                        <!--<a href="/main/" class="btn btn-warning">More Info</a>-->
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+<% include ../partials/footer %>

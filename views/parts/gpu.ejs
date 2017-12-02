@@ -1,0 +1,47 @@
+<% include ../partials/header %>
+    <div class="row text-center"><h1>GPUs</h1></div>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% gpuResponse.forEach(function(gpuObject){ %>
+            <% if (gpuObject.idx.verify != "0"){ %>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail">
+                        <% if (gpuObject.main.title != ""){ %>
+                            <h5><strong><%=gpuObject.main.title%></strong></h5>
+                        <% } %>
+                        <% if (gpuObject.main.price != 0){ %>
+                             <h5><strong>$<%=gpuObject.main.price%></strong></h5>
+                        <% } %>
+                        <img src="https://media.memoryexpress.com/Images/Products/medium/<%=gpuObject.idx.mxid%>-0.jpg">
+                        <div class="caption">
+                            <% if (gpuObject.gpu.dvi){ %>
+                                <h6><strong>DVI Port</strong></h5>
+                            <% } %>
+                            <% if (gpuObject.gpu.displayport){ %>
+                                <h6><strong>Display Port</strong></h5>
+                            <% } %>
+                            <% if (gpuObject.gpu.vram > 0){ %>
+                                <h6><strong>Memory : <%=gpuObject.gpu.vram%> GB</strong></h5>
+                            <% } %>
+                            <% if (gpuObject.gpu.cores > 0){ %>
+                                <h6><strong>GPU Cores : <%=gpuObject.gpu.cores%></strong></h5>
+                            <% } %>
+                            <% if (gpuObject.gpu.minimum_power > 0){ %>
+                                <h6><strong>Power requirements : <%=gpuObject.gpu.minimum_power%> W</strong></h5>
+                            <% } %>
+                            <% if (gpuObject.gpu.slots > 0){ %>
+                                <h6><strong>Slots : <%=gpuObject.gpu.slots%></strong></h5>
+                            <% } %>
+                            <% if (gpuObject.gpu.benchmark > 0){ %>
+                                <h6><strong>Benchmark Score : <%=gpuObject.gpu.benchmark%></strong></h5>
+                            <% } %>
+                        </div>
+                        <p>
+                            <!--<a href="/main/" class="btn btn-warning">More Info</a>-->
+                        </p>
+                    </div>
+                </div>
+            <% } %>
+        <% }); %>
+    </div>
+    
+<% include ../partials/footer %>

@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+    <div class="row text-center"><h1>Memory</h1></div>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% memoryResponse.forEach(function(memoryObject){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <% if (memoryObject.main.title != ""){ %>
+                        <h5><strong><%=memoryObject.main.title%></strong></h5>
+                    <% } %>
+                    <% if (memoryObject.main.price != 0){ %>
+                         <h5><strong>$<%=memoryObject.main.price%></strong></h5>
+                    <% } %>
+                    <img src="https://media.memoryexpress.com/Images/Products/medium/<%=memoryObject.idx.mxid%>-0.jpg">
+                    <div class="caption">
+                        <% if (memoryObject.memory.memory_type != ''){ %>
+                            <h6><strong>Memory Type : <%=memoryObject.memory.memory_type%></strong></h5>
+                        <% } %>
+                        <% if (memoryObject.memory.capacity > 0){ %>
+                            <h6><strong>Capacity : <%=memoryObject.memory.capacity%> GB</strong></h5>
+                        <% } %>
+                        <% if (memoryObject.memory.modules > 0){ %>
+                            <h6><strong>Number Of Modules <%=memoryObject.memory.modules%></strong></h5>
+                        <% } %>
+                        <% if (memoryObject.memory.speed > 50){ %>
+                            <h6><strong>Memory Speed : <%=memoryObject.memory.speed%> mhz</strong></h5>
+                        <% } %>
+                        <% if (memoryObject.memory.heatsink){ %>
+                            <h6><strong>Includes heatsink</strong></h5>
+                        <% } %>
+                        <% if (memoryObject.memory.ecc){ %>
+                            <h6><strong>ECC RAM</strong></h5>
+                        <% } %>
+                    </div>
+                    <p>
+                        <!--<a href="/main/" class="btn btn-warning">More Info</a>-->
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+<% include ../partials/footer %>

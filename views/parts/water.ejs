@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+    <div class="row text-center"><h1>Water Coolers</h1></div>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% waterResponse.forEach(function(waterObject){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <% if (waterObject.main.title != ""){ %>
+                        <h5><strong><%=waterObject.main.title%></strong></h5>
+                    <% } %>
+                    <% if (waterObject.main.price != 0){ %>
+                         <h5><strong>$<%=waterObject.main.price%></strong></h5>
+                    <% } %>
+                    <img src="https://media.memoryexpress.com/Images/Products/medium/<%=waterObject.idx.mxid%>-0.jpg">
+                    <div class="caption">
+                    </div>
+                    <p>
+                        <!--<a href="/main/" class="btn btn-warning">More Info</a>-->
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+<% include ../partials/footer %>

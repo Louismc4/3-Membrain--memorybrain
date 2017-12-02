@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+    <div class="row text-center"><h1>Coolers</h1></div>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% coolerResponse.forEach(function(coolerObject){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <% if (coolerObject.main.title != ""){ %>
+                        <h5><strong><%=coolerObject.main.title%></strong></h5>
+                    <% } %>
+                    <% if (coolerObject.main.price != 0){ %>
+                         <h5><strong>$<%=coolerObject.main.price%></strong></h5>
+                    <% } %>
+                    <img src="https://media.memoryexpress.com/Images/Products/medium/<%=coolerObject.idx.mxid%>-0.jpg">
+                    <div class="caption">
+                        <% if (coolerObject.cooler.sockets != ''){ %>
+                            <h6><strong>Cooler Socket : <%=coolerObject.cooler.sockets%></strong></h5>
+                        <% } %>
+                    </div>
+                    <p>
+                        <!--<a href="/main/" class="btn btn-warning">More Info</a>-->
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+<% include ../partials/footer %>

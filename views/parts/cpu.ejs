@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+    <div class="row text-center"><h1>CPUs</h1></div>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% cpuResponse.forEach(function(cpuObject){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <% if (cpuObject.main.title != ""){ %>
+                        <h5><strong><%=cpuObject.main.title%></strong></h5>
+                    <% } %>
+                    <% if (cpuObject.main.price != 0){ %>
+                         <h5><strong>$<%=cpuObject.main.price%></strong></h5>
+                    <% } %>
+                    <img src="https://media.memoryexpress.com/Images/Products/medium/<%=cpuObject.idx.mxid%>-0.jpg">
+                    <div class="caption">
+                        <% if (cpuObject.cpu.cores > 0){ %>
+                            <h6><strong>Cores : <%=cpuObject.cpu.cores%></strong></h5>
+                        <% } %>
+                        <% if (cpuObject.cpu.core_clock > 0 ){ %>
+                            <h6><strong>Clock Speed : <%=cpuObject.cpu.core_clock%> mhz</strong></h5>
+                        <% } %>
+                        <% if (cpuObject.cpu.turbo_clock > 0 ){ %>
+                            <h6><strong>Turbo Clock Speed : <%=cpuObject.cpu.turbo_clock%> mhz</strong></h5>
+                        <% } %>
+                        <% if (cpuObject.cpu.threads > 50){ %>
+                            <h6><strong>Threads : <%=cpuObject.cpu.threads%></strong></h5>
+                        <% } %>
+                        <% if (cpuObject.cpu.memory_type != ''){ %>
+                            <h6><strong>Memory Type : <%=cpuObject.cpu.memory_type%></strong></h5>
+                        <% } %>
+                        <% if (cpuObject.cpu.socket != ''){ %>
+                            <h6><strong>Socket : <%=cpuObject.cpu.socket%></strong></h5>
+                        <% } %>
+                        <% if (cpuObject.cpu.tdp != ''){ %>
+                            <h6><strong>Heat Output(tdp) : <%=cpuObject.cpu.tdp%> W</strong></h5>
+                        <% } %>
+                        <% if (cpuObject.cpu.unlocked){ %>
+                            <h6><strong>Unlocked For OverClocking</strong></h5>
+                        <% } %>
+                        <% if (cpuObject.cpu.cooler){ %>
+                            <h6><strong>Contains Cooler</strong></h5>
+                        <% } %>
+                        <% if (cpuObject.cpu.benchmark > 0){ %>
+                            <h6><strong>Benchmark : <%=cpuObject.cpu.benchmark%></strong></h5>
+                        <% } %>
+                    </div>
+                    <p>
+                        <!--<a href="/main/" class="btn btn-warning">More Info</a>-->
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+<% include ../partials/footer %>

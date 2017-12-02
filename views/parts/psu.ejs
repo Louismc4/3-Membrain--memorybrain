@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+    <div class="row text-center"><h1>PSUs</h1></div>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% psuResponse.forEach(function(psuObject){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <% if (psuObject.main.title != ""){ %>
+                        <h5><strong><%=psuObject.main.title%></strong></h5>
+                    <% } %>
+                    <% if (psuObject.main.price != 0){ %>
+                         <h5><strong>$<%=psuObject.main.price%></strong></h5>
+                    <% } %>
+                    <img src="https://media.memoryexpress.com/Images/Products/medium/<%=psuObject.idx.mxid%>-0.jpg">
+                    <div class="caption">
+                        
+                        <% if (psuObject.psu.psu_size != ''){ %>
+                            <h6><strong>PSU Size : <%=psuObject.psu.psu_size%></strong></h5>
+                        <% } %>
+                        <% if (psuObject.psu.efficiency != ''){ %>
+                            <h6><strong>Efficiency : <%=psuObject.psu.efficiency%></strong></h5>
+                        <% } %>
+                        <% if (psuObject.psu.wattage > 0){ %>
+                            <h6><strong>Wattage : <%=psuObject.psu.wattage%> W</strong></h5>
+                        <% } %>
+                        <% if (psuObject.psu.fan){ %>
+                            <h6><strong>Contains Fan</strong></h5>
+                        <% } %>
+                        <% if (psuObject.psu.modular){ %>
+                            <h6><strong>Modular</strong></h5>
+                        <% } %>
+                    </div>
+                    <p>
+                        <!--<a href="/main/" class="btn btn-warning">More Info</a>-->
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+<% include ../partials/footer %>
